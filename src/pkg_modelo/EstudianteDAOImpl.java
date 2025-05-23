@@ -96,6 +96,28 @@ public class EstudianteDAOImpl {
         }
         return filasModificadas;
     }
+
+    public int eliminarAlumno(int id) {
+        PreparedStatement statement = null;
+        int filasEliminadas = 0;
+        String sql = "DELETE FROM alumnos WHERE id = ?";
+        try {
+            statement = con.getConnection().prepareStatement(sql);
+            statement.setInt(1, id);
+            filasEliminadas = statement.executeUpdate();
+        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println("No se ha podido eliminar los registros: " + e.getMessage());
+        } finally {
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(EstudianteDAOImpl.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
+                }
+            }
+        }
+        return filasEliminadas;
+    }
     
     
 }

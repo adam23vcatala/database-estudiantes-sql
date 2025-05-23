@@ -32,5 +32,13 @@ public class EstudianteControl {
         int resultado = edi.modificarAlumno(e1, e.getId());
         esd.mostrarResultado(resultado);
     }
+
+    public void eliminarAlumno() {
+        esd.mostrarCadena("Introduzca el nif del alumno a eliminar: ");
+        String nif = esd.pedirCadena();
+        Estudiante e = edi.buscarAlumno(nif);
+        int resultado = edi.eliminarAlumno(e.getId());
+        esd.mostrarResultado(resultado);
+    }
     
 }

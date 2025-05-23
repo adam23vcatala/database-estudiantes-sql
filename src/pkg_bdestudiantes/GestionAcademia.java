@@ -28,17 +28,18 @@ public class GestionAcademia {
                     + "Introduce una opción: ");
             int opcion = esd.pedirValorEnteroPositivo();
             switch (opcion) {
-                case 1:
+                case 1: // AGREGAR ALUMNO
                     ec.agregarAlumno();
                     break;
-                case 2:
+                case 2: // MODIFICAR ALUMNO
                     ec.modificarAlumno();
                     break;
-                case 3:
+                case 3: // ELIMINAR ALUMNO
+                    ec.eliminarAlumno();
                     break;
-                case 4:
+                case 4: // MOSTRAR TODOS LOS ALUMNOS
                     break;
-                case 99:
+                case 99: // SALIR
                     con.cerrarConexion();
                     salir = true;
                     break;
