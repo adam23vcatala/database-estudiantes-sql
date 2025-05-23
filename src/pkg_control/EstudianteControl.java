@@ -1,5 +1,6 @@
 package pkg_control;
 
+import java.util.List;
 import pkg_conexion.Conexion;
 import pkg_modelo.Estudiante;
 import pkg_modelo.EstudianteDAOImpl;
@@ -39,6 +40,10 @@ public class EstudianteControl {
         Estudiante e = edi.buscarAlumno(nif);
         int resultado = edi.eliminarAlumno(e.getId());
         esd.mostrarResultado(resultado);
+    }
+
+    public void mostrarAlumnos() {
+        ev.mostrarListaEstudiantes(edi.obtenerAlumnos());
     }
     
 }

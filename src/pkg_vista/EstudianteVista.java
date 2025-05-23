@@ -1,6 +1,7 @@
 package pkg_vista;
 
 import java.time.LocalDate;
+import java.util.List;
 import pkg_modelo.Estudiante;
 
 public class EstudianteVista {
@@ -55,6 +56,16 @@ public class EstudianteVista {
                     Integer.parseInt(datos[0]));
         }
         return fecha;
+    }
+
+    public void mostrarListaEstudiantes(List<Estudiante> estudiantes) {
+        for (Estudiante e : estudiantes) {
+            System.out.println("ID: " + e.getId()
+                    + ",Nombre: " + e.getNombre()
+                    + ",Apellido: " + e.getApellido()
+                    + ",NIF: " + e.getNif()
+                    + ",Fecha de nacimiento: " + e.getFecha_nacimiento());
+        }
     }
     
 }

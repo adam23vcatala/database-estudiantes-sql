@@ -2,6 +2,8 @@ package pkg_modelo;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import pkg_conexion.Conexion;
@@ -117,6 +119,36 @@ public class EstudianteDAOImpl {
             }
         }
         return filasEliminadas;
+    }
+
+    public List<Estudiante> obtenerAlumnos() {
+        List<Estudiante> estudiantes = new ArrayList();
+        Statement statement = null;
+        ResultSet resultado = null;
+        String sql = "SELECT * FROM alumnos";
+        try {
+            statement = con.getConnection().createStatement();
+            resultado = statement.executeQuery(sql);
+            while (resultado.next()) {                
+                estudiantes.add(new Estudiante(resultado.getInt("id"), 
+                        resultado.getString("nombre"), 
+                        resultado.getString("apellido"), 
+                        resultado.getString("nif"), 
+                        resultado.getDate("fecha_nacimiento").toLocalDate()));
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println("Error al devolver los registros: " + e.getMessage());
+        } finally {
+            if (statement != null) {
+                try {
+                    resultado.close();
+                    statement.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(EstudianteDAOImpl.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
+                }
+            }
+        }
+        return estudiantes;
     }
     
     

@@ -38,6 +38,7 @@ public class GestionAcademia {
                     ec.eliminarAlumno();
                     break;
                 case 4: // MOSTRAR TODOS LOS ALUMNOS
+                    ec.mostrarAlumnos();
                     break;
                 case 99: // SALIR
                     con.cerrarConexion();
