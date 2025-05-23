@@ -22,6 +22,30 @@ public class EstudianteVista {
         return new Estudiante(nombre, apellido, nif, fecha);
     }
     
+    public Estudiante pedirDatosNuevoEstudiante(Estudiante e) {
+        esd.mostrarCadena("Introduce el nombre del estudiante: ");
+        String nombre = esd.pedirCadena();
+        if (e.getNombre().equals("")) {
+            e.setNombre(nombre);
+        }
+        esd.mostrarCadena("Introduce el apellido del estudiante: ");
+        String apellido = esd.pedirCadena();
+        if (e.getApellido().equals("")) {
+            e.setApellido(apellido);
+        }
+        esd.mostrarCadena("Introduce el nif del estudiante: ");
+        String nif = esd.pedirCadena();
+        if (e.getNif().equals("")) {
+            e.setNif(nif);
+        }
+        esd.mostrarCadena("Introduce la fecha de nacimiento del estudiante: ");
+        LocalDate fecha = pasarStringFecha(esd.pedirCadena());
+        if (e.getFecha_nacimiento().equals("")) {
+            e.setFecha_nacimiento(fecha);
+        }
+        return new Estudiante(nombre, apellido, nif, fecha);
+    }
+    
     public LocalDate pasarStringFecha(String fechaTexto) { // DD-MM-AAAA
         LocalDate fecha = null;
         if (fechaTexto.length() == 10 && fechaTexto.charAt(2) == '-' && fechaTexto.charAt(5) == '-') {

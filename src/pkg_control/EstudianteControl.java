@@ -23,5 +23,14 @@ public class EstudianteControl {
         int resultado = edi.agregarAlumno(e);
         esd.mostrarResultado(resultado);
     }
+
+    public void modificarAlumno() {
+        esd.mostrarCadena("Introduce el nif del alumno a modificar: ");
+        String nif = esd.pedirCadena();
+        Estudiante e = edi.buscarAlumno(nif);
+        Estudiante e1 = ev.pedirDatosNuevoEstudiante(e);
+        int resultado = edi.modificarAlumno(e1, e.getId());
+        esd.mostrarResultado(resultado);
+    }
     
 }

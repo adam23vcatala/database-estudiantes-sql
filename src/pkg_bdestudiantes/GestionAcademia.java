@@ -32,6 +32,7 @@ public class GestionAcademia {
                     ec.agregarAlumno();
                     break;
                 case 2:
+                    ec.modificarAlumno();
                     break;
                 case 3:
                     break;
