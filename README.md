@@ -1,5 +1,5 @@
-# Proyecto: Base de datos de Estudiantes
-Este proyecto es sobre una base de datos de los estudiantes de una academia. La base de datos SQL con la que se realiza este proyecto se encuentra en la carpeta ``sql`` del proyecto, el cual utiliza Java para realizar los comandos (``INSERT``, ``UPDATE``, ``DELETE``, entre otros).
+# Proyecto: Base de datos de estudiantes
+Este proyecto es sobre una base de datos de los estudiantes de una academia. La base de datos SQL con la que se realiza este proyecto se encuentra en la carpeta ``sql`` del proyecto, el cual utiliza Java para realizar los comandos (``INSERT``, ``UPDATE``, ``DELETE``, entre otros), mediante el conector de MySQL Connector/J.
 
 Contiene las siguientes características:
 1. Insertar un estudiante nuevo
