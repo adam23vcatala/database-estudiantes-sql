@@ -17,6 +17,33 @@ public class GestionAcademia {
     
     
     public void menu() {
-
+        boolean salir = false;
+        do {
+            esd.mostrarCadena("MENÚ\n"
+                    + "\t1. Insertar alumno nuevo\n"
+                    + "\t2. Modificar alumno existente\n"
+                    + "\t3. Eliminar alumno\n"
+                    + "\t4. Mostrar todos los alumnos\n"
+                    + "\t99. Salir\n"
+                    + "Introduce una opción: ");
+            int opcion = esd.pedirValorEnteroPositivo();
+            switch (opcion) {
+                case 1:
+                    ec.agregarAlumno();
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 99:
+                    con.cerrarConexion();
+                    salir = true;
+                    break;
+                default:
+                    esd.mostrarCadena("¡Opción no válida!");
+            }
+        } while (!salir);
     }
 }

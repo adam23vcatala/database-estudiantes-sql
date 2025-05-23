@@ -1,5 +1,36 @@
 package pkg_vista;
 
+import java.time.LocalDate;
+import pkg_modelo.Estudiante;
+
 public class EstudianteVista {
+    private EntradaSalidaDatos esd;
+
+    public EstudianteVista() {
+        esd = new EntradaSalidaDatos();
+    }
+    
+    public Estudiante pedirDatosEstudiante() {
+        esd.mostrarCadena("Introduce el nombre del estudiante: ");
+        String nombre = esd.pedirCadena();
+        esd.mostrarCadena("Introduce el apellido del estudiante: ");
+        String apellido = esd.pedirCadena();
+        esd.mostrarCadena("Introduce el nif del estudiante: ");
+        String nif = esd.pedirCadena();
+        esd.mostrarCadena("Introduce la fecha de nacimiento del estudiante: ");
+        LocalDate fecha = pasarStringFecha(esd.pedirCadena());
+        return new Estudiante(nombre, apellido, nif, fecha);
+    }
+    
+    public LocalDate pasarStringFecha(String fechaTexto) { // DD-MM-AAAA
+        LocalDate fecha = null;
+        if (fechaTexto.length() == 10 && fechaTexto.charAt(2) == '-' && fechaTexto.charAt(5) == '-') {
+            String[] datos = fechaTexto.split("-");
+            fecha = LocalDate.of(Integer.parseInt(datos[2]), 
+                    Integer.parseInt(datos[1]), 
+                    Integer.parseInt(datos[0]));
+        }
+        return fecha;
+    }
     
 }
