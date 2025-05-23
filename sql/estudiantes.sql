@@ -1,0 +1,13 @@
+DROP DATABASE IF EXISTS estudiantes;
+CREATE DATABASE IF NOT EXISTS estudiantes;
+USE estudiantes;
+
+DROP TABLE IF EXISTS alumnos;
+CREATE TABLE IF NOT EXISTS alumnos(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    apellido VARCHAR(255) NOT NULL,
+    nif VARCHAR (9) NOT NULL,
+    fecha_nacimiento DATE NOT NULL
+);
+SELECT * FROM alumnos;
