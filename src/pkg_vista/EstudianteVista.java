@@ -18,9 +18,11 @@ public class EstudianteVista {
         String apellido = esd.pedirCadena();
         esd.mostrarCadena("Introduce el nif del estudiante: ");
         String nif = esd.pedirCadena();
+        esd.mostrarCadena("Introduce la clase del alumno: ");
+        String clase = esd.pedirCadena();
         esd.mostrarCadena("Introduce la fecha de nacimiento del estudiante: ");
         LocalDate fecha = pasarStringFecha(esd.pedirCadena());
-        return new Estudiante(nombre, apellido, nif, fecha);
+        return new Estudiante(nombre, apellido, nif, fecha, clase, false);
     }
     
     public Estudiante pedirDatosNuevoEstudiante(Estudiante e) {
@@ -39,12 +41,22 @@ public class EstudianteVista {
         if (e.getNif().equals("")) {
             e.setNif(nif);
         }
+        esd.mostrarCadena("Introduce la clase del estudiante: ");
+        String clase = esd.pedirCadena();
+        if (e.getClase().equals("")) {
+            e.setClase(clase);
+        }
+        esd.mostrarCadena("¿Se ha graduado el estudiante?");
+        boolean graduado = esd.pedirBoolean();
+        if (!e.isGraduado()) {
+            e.setGraduado(graduado);
+        }
         esd.mostrarCadena("Introduce la fecha de nacimiento del estudiante: ");
         LocalDate fecha = pasarStringFecha(esd.pedirCadena());
         if (e.getFecha_nacimiento().equals("")) {
             e.setFecha_nacimiento(fecha);
         }
-        return new Estudiante(nombre, apellido, nif, fecha);
+        return new Estudiante(nombre, apellido, nif, fecha, clase, graduado);
     }
     
     public LocalDate pasarStringFecha(String fechaTexto) { // DD-MM-AAAA
@@ -64,7 +76,9 @@ public class EstudianteVista {
                     + ",Nombre: " + e.getNombre()
                     + ",Apellido: " + e.getApellido()
                     + ",NIF: " + e.getNif()
-                    + ",Fecha de nacimiento: " + e.getFecha_nacimiento());
+                    + ",Fecha de nacimiento: " + e.getFecha_nacimiento()
+                    + ",Clase: " + e.getClase()
+                    + ",Graduado: " + e.isGraduado());
         }
     }
     

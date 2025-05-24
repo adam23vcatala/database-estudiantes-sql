@@ -24,6 +24,12 @@ public class GestionAcademia {
                     + "\t2. Modificar alumno existente\n"
                     + "\t3. Eliminar alumno\n"
                     + "\t4. Mostrar todos los alumnos\n"
+                    + "\t5. Eliminar alumnos graduados\n"
+                    + "\t6. Insertar profe nuevo\n"
+                    + "\t7. Modificar profe existente\n"
+                    + "\t8. Eliminar profe\n"
+                    + "\t9. Mostrar todos los profes\n"
+                    + "\t10. Eliminar profes despedidos\n"
                     + "\t99. Salir\n"
                     + "Introduce una opción: ");
             int opcion = esd.pedirValorEnteroPositivo();
@@ -39,6 +45,18 @@ public class GestionAcademia {
                     break;
                 case 4: // MOSTRAR TODOS LOS ALUMNOS
                     ec.mostrarAlumnos();
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    break;
+                case 8:
+                    break;
+                case 9:
+                    break;
+                case 10:
                     break;
                 case 99: // SALIR
                     con.cerrarConexion();

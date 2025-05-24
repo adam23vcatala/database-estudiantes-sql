@@ -22,6 +22,11 @@ public class EntradaSalidaDatos {
         return cadena;
     }
     
+    public boolean pedirBoolean() {
+        boolean b = sc.nextBoolean();
+        return b;
+    }
+    
     public int pedirValorEnteroPositivo() {
         int valor = 0;
         boolean valido = false;

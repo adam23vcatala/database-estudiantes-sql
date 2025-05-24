@@ -18,10 +18,18 @@ public class Estudiante extends Persona {
     }
 
     public Estudiante(String nombre, String apellido, String nif, LocalDate fecha_nacimiento, String clase, boolean graduado) {
-        super(nombre, apellido, nif, fecha_nacimiento);
+        this(nombre, apellido, nif, fecha_nacimiento);
         this.clase = clase;
         this.graduado = false;
     }
+
+    public Estudiante(int id, String nombre, String apellido, String nif, LocalDate fecha_nacimiento, String clase, boolean graduado) {
+        this(id, nombre, apellido, nif, fecha_nacimiento);
+        this.clase = clase;
+        this.graduado = false;
+    }
+    
+    
 
     public String getClase() {
         return clase;
@@ -30,8 +38,6 @@ public class Estudiante extends Persona {
     public void setClase(String clase) {
         this.clase = clase;
     }
-
-    
 
     public boolean isGraduado() {
         return graduado;

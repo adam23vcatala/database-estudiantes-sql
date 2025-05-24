@@ -8,6 +8,19 @@ CREATE TABLE IF NOT EXISTS alumnos(
     nombre VARCHAR(255) NOT NULL,
     apellido VARCHAR(255) NOT NULL,
     nif VARCHAR (9) NOT NULL,
-    fecha_nacimiento DATE NOT NULL
+    fecha_nacimiento DATE NOT NULL,
+    clase VARCHAR(255) NOT NULL,
+    graduado BOOLEAN NOT NULL
 );
 SELECT * FROM alumnos;
+
+DROP TABLE IF EXISTS profes;
+CREATE TABLE IF NOT EXISTS profes(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    apellido VARCHAR(255) NOT NULL,
+    nif VARCHAR (9) NOT NULL,
+    fecha_nacimiento DATE NOT NULL,
+    empleado BOOLEAN NOT NULL
+);
+SELECT * FROM profes;

@@ -18,7 +18,7 @@ public class EstudianteDAOImpl {
     public int agregarAlumno(Estudiante a) {
         PreparedStatement statement = null;
         int filasAgregadas = 0;
-        String sql = "INSERT INTO alumnos (nombre, apellido, nif, fecha_nacimiento) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO alumnos (nombre, apellido, nif, fecha_nacimiento, clase, graduado) VALUES (?, ?, ?, ?, ?, false)";
         try {
             statement = con.getConnection().prepareStatement(sql);
             LocalDate fecha = a.getFecha_nacimiento();
@@ -26,6 +26,7 @@ public class EstudianteDAOImpl {
             statement.setString(2, a.getApellido());
             statement.setString(3, a.getNif());
             statement.setDate(4, new Date(fecha.getYear(), fecha.getMonthValue(), fecha.getDayOfMonth()));
+            statement.setString(5, a.getClase());
             filasAgregadas = statement.executeUpdate();
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("No se ha podido insertar los registros: " + e.getMessage());
@@ -55,7 +56,10 @@ public class EstudianteDAOImpl {
                         resultado.getString("nombre"), 
                         resultado.getString("apellido"), 
                         resultado.getString("nif"), 
-                        resultado.getDate("fecha_nacimiento").toLocalDate());
+                        resultado.getDate("fecha_nacimiento").toLocalDate(),
+                        resultado.getString("clase"),
+                        resultado.getBoolean("graduado")
+                );
             }
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("No se ha podido identificar al alumno: " + e.getMessage());
@@ -76,7 +80,7 @@ public class EstudianteDAOImpl {
         PreparedStatement statement = null;
         int filasModificadas = 0;
         LocalDate fecha = a.getFecha_nacimiento();
-        String sql = "UPDATE alumnos SET nombre = ?, apellido = ?, nif = ?, fecha_nacimiento = ? WHERE id = ?";
+        String sql = "UPDATE alumnos SET nombre = ?, apellido = ?, nif = ?, fecha_nacimiento = ?, clase = ? WHERE id = ?";
         try {
             statement = con.getConnection().prepareStatement(sql);
             statement.setString(1, a.getNombre());
@@ -84,6 +88,7 @@ public class EstudianteDAOImpl {
             statement.setString(3, a.getNif());
             statement.setDate(4, new Date(fecha.getYear(), fecha.getMonthValue(), fecha.getDayOfMonth()));
             statement.setInt(5, id);
+            statement.setString(1, a.getClase());
             filasModificadas = statement.executeUpdate();
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("No se ha podido modificar los registros: " + e.getMessage());
@@ -134,7 +139,9 @@ public class EstudianteDAOImpl {
                         resultado.getString("nombre"), 
                         resultado.getString("apellido"), 
                         resultado.getString("nif"), 
-                        resultado.getDate("fecha_nacimiento").toLocalDate()));
+                        resultado.getDate("fecha_nacimiento").toLocalDate(),
+                        resultado.getString("clase"), 
+                        resultado.getBoolean("graduado")));
             }
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("Error al devolver los registros: " + e.getMessage());
