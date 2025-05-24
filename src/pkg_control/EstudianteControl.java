@@ -1,6 +1,5 @@
 package pkg_control;
 
-import java.util.List;
 import pkg_conexion.Conexion;
 import pkg_modelo.Estudiante;
 import pkg_modelo.EstudianteDAOImpl;

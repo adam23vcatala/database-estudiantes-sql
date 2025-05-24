@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Estudiante extends Persona {
 
-    private List<String> clases;
+    private String clase;
     private boolean graduado;
 
     public Estudiante(String nombre, String apellido, String nif, LocalDate fecha_nacimiento) {
@@ -17,15 +17,21 @@ public class Estudiante extends Persona {
         super(id, nombre, apellido, nif, fecha_nacimiento);
     }
 
-    public Estudiante(String nombre, String apellido, String nif, LocalDate fecha_nacimiento, boolean graduado) {
+    public Estudiante(String nombre, String apellido, String nif, LocalDate fecha_nacimiento, String clase, boolean graduado) {
         super(nombre, apellido, nif, fecha_nacimiento);
-        this.clases = new ArrayList();
+        this.clase = clase;
         this.graduado = false;
     }
 
-    public List<String> getClases() {
-        return clases;
+    public String getClase() {
+        return clase;
     }
+
+    public void setClase(String clase) {
+        this.clase = clase;
+    }
+
+    
 
     public boolean isGraduado() {
         return graduado;
@@ -37,7 +43,7 @@ public class Estudiante extends Persona {
 
     @Override
     public String toString() {
-        return "Estudiante{" + super.toString() + "clases=" + clases + ", graduado=" + graduado + '}';
+        return "Estudiante{" + super.toString() + "clase=" + clase + ", graduado=" + graduado + '}';
     }
 
 }
