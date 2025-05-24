@@ -20,7 +20,7 @@ public class Estudiante extends Persona {
     public Estudiante(String nombre, String apellido, String nif, LocalDate fecha_nacimiento, boolean graduado) {
         super(nombre, apellido, nif, fecha_nacimiento);
         this.clases = new ArrayList();
-        this.graduado = graduado;
+        this.graduado = false;
     }
 
     public List<String> getClases() {
