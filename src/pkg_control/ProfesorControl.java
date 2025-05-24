@@ -33,6 +33,30 @@ public class ProfesorControl {
         int resultado = pdi.modificarProfesor(p1, p.getId());
         esd.mostrarResultado(resultado);
     }
-    
+
+    public void eliminarProfe() {
+        esd.mostrarCadena("Introduce el nif del profesor a buscar: ");
+        String nif = esd.pedirCadena();
+        Profesor p = pdi.buscarProfesor(nif);
+        int resultado = pdi.eliminarProfesor(p.getId());
+        esd.mostrarResultado(resultado);
+    }
+
+    public void mostrarProfes() {
+        pv.mostrarListaProfes(pdi.obtenerTodosProfesores());
+    }
+
+    public void eliminarProfesDespedidos() {
+        int resultado = pdi.eliminarProfesoresDespedidos();
+        esd.mostrarResultado(resultado);
+    }
+
+    public void despedirProfe() {
+        esd.mostrarCadena("Introduce el nif del profesor a buscar: ");
+        String nif = esd.pedirCadena();
+        Profesor p = pdi.buscarProfesor(nif);
+        int resultado = pdi.despedirProfesor(p.getId());
+        esd.mostrarResultado(resultado);
+    }
     
 }

@@ -1,6 +1,7 @@
 package pkg_vista;
 
 import java.time.LocalDate;
+import java.util.List;
 import pkg_modelo.Profesor;
 
 public class ProfesorVista {
@@ -62,5 +63,16 @@ public class ProfesorVista {
                     Integer.parseInt(datos[0]));
         }
         return fecha;
+    }
+
+    public void mostrarListaProfes(List<Profesor> profesores) {
+        for (Profesor p : profesores) {
+            esd.mostrarCadena("ID: " + p.getId()
+                    + ",Nombre: " + p.getNombre()
+                    + ",Apellido: " + p.getApellido()
+                    + ",NIF: " + p.getNif()
+                    + ",Fecha de nacimiento: " + p.getFecha_nacimiento()
+                    + ",Clase: " + p.getClase());
+        }
     }
 }

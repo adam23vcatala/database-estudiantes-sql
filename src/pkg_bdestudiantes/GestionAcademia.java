@@ -6,6 +6,7 @@ import pkg_control.ProfesorControl;
 import pkg_vista.EntradaSalidaDatos;
 
 public class GestionAcademia {
+
     private Conexion con;
     private EstudianteControl ec;
     private ProfesorControl pc;
@@ -17,8 +18,7 @@ public class GestionAcademia {
         pc = new ProfesorControl(con);
         esd = new EntradaSalidaDatos();
     }
-    
-    
+
     public void menu() {
         boolean salir = false;
         do {
@@ -61,15 +61,19 @@ public class GestionAcademia {
                     pc.modificarProfe();
                     break;
                 case 8: // ELIMINAR PROFE
+                    pc.eliminarProfe();
                     break;
                 case 9: // MOSTRAR TODOS LOS PROFES
+                    pc.mostrarProfes();
                     break;
                 case 10: // ELIMINAR PROFES DESPEDIDOS
+                    pc.eliminarProfesDespedidos();
                     break;
                 case 11: // GRADUAR A UNA CLASE
                     ec.graduarClase();
                     break;
                 case 12: // DESPEDIR A UN PROFE
+                    pc.despedirProfe();
                     break;
                 case 99: // SALIR
                     con.cerrarConexion();
