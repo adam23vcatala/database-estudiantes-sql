@@ -18,7 +18,7 @@ public class EstudianteVista {
         String apellido = esd.pedirCadena();
         esd.mostrarCadena("Introduce el nif del estudiante: ");
         String nif = esd.pedirCadena();
-        esd.mostrarCadena("Introduce la clase del alumno: ");
+        esd.mostrarCadena("Introduce la clase del estudiante: ");
         String clase = esd.pedirCadena();
         esd.mostrarCadena("Introduce la fecha de nacimiento del estudiante: ");
         LocalDate fecha = pasarStringFecha(esd.pedirCadena());

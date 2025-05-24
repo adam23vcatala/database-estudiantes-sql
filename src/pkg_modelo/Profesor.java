@@ -1,33 +1,32 @@
 package pkg_modelo;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Profesor extends Persona{
-    private List<String> clases;
+    private String clase;
     private boolean empleado;
 
-    public Profesor(String nombre, String apellido, String nif, LocalDate fecha_nacimiento) {
+    public Profesor(String nombre, String apellido, String nif, LocalDate fecha_nacimiento, String clase) {
         super(nombre, apellido, nif, fecha_nacimiento);
+        this.clase = clase;
     }
 
-    public Profesor(int id, String nombre, String apellido, String nif, LocalDate fecha_nacimiento) {
+    public Profesor(int id, String nombre, String apellido, String nif, LocalDate fecha_nacimiento, String clase) {
         super(id, nombre, apellido, nif, fecha_nacimiento);
+        this.clase = clase;
     }
 
-    public Profesor(int id, String nombre, String apellido, String nif, LocalDate fecha_nacimiento, List<String> clases, boolean empleado) {
-        this(id, nombre, apellido, nif, fecha_nacimiento);
-        this.clases = new ArrayList();
-        this.empleado = empleado;
+    public Profesor(int id, String nombre, String apellido, String nif, LocalDate fecha_nacimiento, String clase, boolean empleado) {
+        this(id, nombre, apellido, nif, fecha_nacimiento, clase);
+        this.empleado = true;
     }
 
-    public List<String> getClases() {
-        return clases;
+    public String getClase() {
+        return clase;
     }
 
-    public void setClases(List<String> clases) {
-        this.clases = clases;
+    public void setClase(String clase) {
+        this.clase = clase;
     }
 
     public boolean isEmpleado() {
@@ -40,7 +39,7 @@ public class Profesor extends Persona{
 
     @Override
     public String toString() {
-        return "Profesor{" + super.toString() + "clases=" + clases + ", empleado=" + empleado + '}';
+        return "Profesor{" + super.toString() + "clase=" + clase + ", empleado=" + empleado + '}';
     }
 
 }

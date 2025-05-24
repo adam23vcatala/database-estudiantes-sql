@@ -2,16 +2,19 @@ package pkg_bdestudiantes;
 
 import pkg_conexion.Conexion;
 import pkg_control.EstudianteControl;
+import pkg_control.ProfesorControl;
 import pkg_vista.EntradaSalidaDatos;
 
 public class GestionAcademia {
     private Conexion con;
     private EstudianteControl ec;
+    private ProfesorControl pc;
     private EntradaSalidaDatos esd;
 
     public GestionAcademia() {
         con = new Conexion();
         ec = new EstudianteControl(con);
+        pc = new ProfesorControl(con);
         esd = new EntradaSalidaDatos();
     }
     
@@ -52,6 +55,7 @@ public class GestionAcademia {
                     ec.eliminarAlumnosGraduados();
                     break;
                 case 6: // AGREGAR PROFE
+                    pc.agregarProfe();
                     break;
                 case 7: // MODIFICAR PROFE
                     break;
