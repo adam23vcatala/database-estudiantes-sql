@@ -44,5 +44,10 @@ public class EstudianteControl {
     public void mostrarAlumnos() {
         ev.mostrarListaEstudiantes(edi.obtenerAlumnos());
     }
+
+    public void eliminarAlumnosGraduados() {
+        int resultado = edi.eliminarAlumnosGraduados();
+        esd.mostrarResultado(resultado);
+    }
     
 }

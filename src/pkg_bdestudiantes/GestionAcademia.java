@@ -46,17 +46,18 @@ public class GestionAcademia {
                 case 4: // MOSTRAR TODOS LOS ALUMNOS
                     ec.mostrarAlumnos();
                     break;
-                case 5:
+                case 5: // ELIMINAR ALUMNOS GRADUADOS
+                    ec.eliminarAlumnosGraduados();
                     break;
-                case 6:
+                case 6: // AGREGAR PROFE
                     break;
-                case 7:
+                case 7: // MODIFICAR PROFE
                     break;
-                case 8:
+                case 8: // ELIMINAR PROFE
                     break;
-                case 9:
+                case 9: // MOSTRAR TODOS LOS PROFES
                     break;
-                case 10:
+                case 10: // ELIMINAR PROFES DESPEDIDOS
                     break;
                 case 99: // SALIR
                     con.cerrarConexion();
