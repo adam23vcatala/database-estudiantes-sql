@@ -30,6 +30,8 @@ public class GestionAcademia {
                     + "\t8. Eliminar profe\n"
                     + "\t9. Mostrar todos los profes\n"
                     + "\t10. Eliminar profes despedidos\n"
+                    + "\t11. Graduar alumnos de una clase\n"
+                    + "\t12. Despedir a un profesor\n"
                     + "\t99. Salir\n"
                     + "Introduce una opción: ");
             int opcion = esd.pedirValorEnteroPositivo();
@@ -58,6 +60,11 @@ public class GestionAcademia {
                 case 9: // MOSTRAR TODOS LOS PROFES
                     break;
                 case 10: // ELIMINAR PROFES DESPEDIDOS
+                    break;
+                case 11: // GRADUAR A UNA CLASE
+                    ec.graduarClase();
+                    break;
+                case 12: // DESPEDIR A UN PROFE
                     break;
                 case 99: // SALIR
                     con.cerrarConexion();

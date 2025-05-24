@@ -178,6 +178,39 @@ public class EstudianteDAOImpl {
         }
         return filasEliminadas;
     }
+
+    public List<Estudiante> obtenerAlumnosClase(String clase) {
+        List<Estudiante> estudiantes = new ArrayList();
+        PreparedStatement statement = null;
+        ResultSet resultado = null;
+        String sql = "SELECT * FROM alumnos where clase = ?";
+        try {
+            statement = con.getConnection().prepareStatement(sql);
+            statement.setString(1, clase);
+            resultado = statement.executeQuery();
+            while (resultado.next()) {                
+                estudiantes.add(new Estudiante(resultado.getInt("id"), 
+                        resultado.getString("nombre"), 
+                        resultado.getString("apellido"), 
+                        resultado.getString("nif"), 
+                        resultado.getDate("fecha_nacimiento").toLocalDate(),
+                        resultado.getString("clase"), 
+                        resultado.getBoolean("graduado")));
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println("Error al devolver los registros: " + e.getMessage());
+        } finally {
+            if (statement != null) {
+                try {
+                    resultado.close();
+                    statement.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(EstudianteDAOImpl.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
+                }
+            }
+        }
+        return estudiantes;
+    }
     
     
 }

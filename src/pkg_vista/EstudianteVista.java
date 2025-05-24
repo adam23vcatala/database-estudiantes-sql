@@ -81,5 +81,11 @@ public class EstudianteVista {
                     + ",Graduado: " + e.isGraduado());
         }
     }
+
+    public void graduarEstudiantes(List<Estudiante> estudiantes) {
+        for (Estudiante e : estudiantes) {
+            e.setGraduado(true);
+        }
+    }
     
 }

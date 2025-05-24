@@ -1,5 +1,6 @@
 package pkg_control;
 
+import java.util.List;
 import pkg_conexion.Conexion;
 import pkg_modelo.Estudiante;
 import pkg_modelo.EstudianteDAOImpl;
@@ -48,6 +49,14 @@ public class EstudianteControl {
     public void eliminarAlumnosGraduados() {
         int resultado = edi.eliminarAlumnosGraduados();
         esd.mostrarResultado(resultado);
+    }
+
+    public void graduarClase() {
+        esd.mostrarCadena("Introduce la clase que se va a graduar: ");
+        String clase = esd.pedirCadena();
+        List<Estudiante> estudiantes = edi.obtenerAlumnosClase(clase);
+        ev.graduarEstudiantes(estudiantes);
+        ev.mostrarListaEstudiantes(estudiantes);
     }
     
 }
