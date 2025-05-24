@@ -23,6 +23,35 @@ public class ProfesorVista {
         LocalDate fecha = pasarStringFecha(esd.pedirCadena());
         return new Profesor(nombre, apellido, nif, fecha, clase);
     }
+
+    public Profesor pedirDatosNuevoProfesor(Profesor p) {
+        esd.mostrarCadena("Introduce el nombre del profesor: ");
+        String nombre = esd.pedirCadena();
+        if (p.getNombre().equals("")) {
+            p.setNombre(nombre);
+        }
+        esd.mostrarCadena("Introduce el apellido del profesor: ");
+        String apellido = esd.pedirCadena();
+        if (p.getApellido().equals("")) {
+            p.setApellido(apellido);
+        }
+        esd.mostrarCadena("Introduce el nif del profesor: ");
+        String nif = esd.pedirCadena();
+        if (p.getNif().equals("")) {
+            p.setNif(nif);
+        }
+        esd.mostrarCadena("Introduce la clase del profesor: ");
+        String clase = esd.pedirCadena();
+        if (p.getClase().equals("")) {
+            p.setClase(clase);
+        }
+        esd.mostrarCadena("Introduce la fecha de nacimiento del profesor: ");
+        LocalDate fecha = pasarStringFecha(esd.pedirCadena());
+        if (p.getFecha_nacimiento().equals("")) {
+            p.setFecha_nacimiento(fecha);
+        }
+        return new Profesor(nombre, apellido, nif, fecha, clase);
+    }
     
     public LocalDate pasarStringFecha(String fechaTexto) { // DD-MM-AAAA
         LocalDate fecha = null;

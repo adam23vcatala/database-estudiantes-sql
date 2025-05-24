@@ -24,6 +24,15 @@ public class ProfesorControl {
         int resultado = pdi.agregarProfesor(p);
         esd.mostrarResultado(resultado);
     }
+
+    public void modificarProfe() {
+        esd.mostrarCadena("Introduce el nif del profesor a buscar: ");
+        String nif = esd.pedirCadena();
+        Profesor p = pdi.buscarProfesor(nif);
+        Profesor p1 = pv.pedirDatosNuevoProfesor(p);
+        int resultado = pdi.modificarProfesor(p1, p.getId());
+        esd.mostrarResultado(resultado);
+    }
     
     
 }

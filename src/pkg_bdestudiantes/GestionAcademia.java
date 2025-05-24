@@ -58,6 +58,7 @@ public class GestionAcademia {
                     pc.agregarProfe();
                     break;
                 case 7: // MODIFICAR PROFE
+                    pc.modificarProfe();
                     break;
                 case 8: // ELIMINAR PROFE
                     break;
